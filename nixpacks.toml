@@ -1,2 +1,5 @@
 [phases.setup]
 nixPkgs = ["php84"]
+[phases.deploy]
+cmds = ["php artisan migrate --force"]
+
