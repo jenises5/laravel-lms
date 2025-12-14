@@ -1,5 +1,8 @@
 [phases.setup]
 nixPkgs = ["php84"]
-[phases.deploy]
-cmds = ["php artisan migrate --force"]
 
+[phases.deploy]
+cmds = ["php artisan migrate --force", "php artisan config:cache", "php artisan route:cache"]
+
+[start]
+cmd = "php artisan serve --host=0.0.0.0 --port=$PORT"
